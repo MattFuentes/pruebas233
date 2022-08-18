@@ -4,6 +4,10 @@ const hbs = require('hbs');
 const app = express()
 const port = process.env.PORT;
 
+
+app.set('views', path.join(__dirname, 'views'));
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'ejs');
 // require(hbs)
 app.set('view engine', 'hbs')
 hbs.registerPartials(__dirname + '/views/partials', function (err) {});
